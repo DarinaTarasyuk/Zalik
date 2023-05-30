@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true">
+  <form [formGroup] = "xyForm" (ngSubmit)="OnSubmit()" > 
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Реактивна форма</ion-card-title>
+        </ion-card-header>
+  
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating">Кількість точок</ion-label>
+            <ion-input id="сount" type="number" formControlName="xyCount"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Радіус кола</ion-label>
+            <ion-input id="radius" type="number" formControlName="circleRadius"></ion-input> 
+          </ion-item>
+        </ion-card-content>
+    </ion-card>
+  
+    <ion-button type="submit" expand="block" fill="outline"  > Submit
+    </ion-button>
+  
+    <ion-card> 
+      <ion-card-header>
+        <ion-card-title>Результат</ion-card-title>
+      </ion-card-header>
+       <ion-card-content>
+            <ion-item *ngFor="let point of pointsArray">
+              <ion-label [ngStyle]="{backgroundColor:point.color}">{{ point.point.x }}, {{ point.point.y }}</ion-label>
+            </ion-item>
+        </ion-card-content>       
+    </ion-card>
+  </form>
+</ion-content>
